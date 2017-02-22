@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-//import Get from 'react-axios'
-//import axios from 'axios'
-//import Request from './node_modules/react-axios'
+
   let data,img,m,title,f=0,year,release,runtime,genre,director,actors,plot,movieurl,poster,length;
 class App extends Component {
 constructor(){
