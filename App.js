@@ -19,7 +19,7 @@ search(text) {
       data = JSON.parse(xhttp.responseText);
       console.log("data "+data.data.results.titles.length);
       if(data.status="success"){
-        const check=<div></div>
+        let check=<div></div>
         ReactDOM.render(check,document.getElementById("movie"))
         dis=document.getElementById("movie")
         length=data.data.results.titles.length
@@ -39,7 +39,7 @@ search(text) {
         }
       }
       else{
-        const check=<div>
+        let check=<div>
         <h1>Error</h1>
         </div>
         ReactDOM.render(check,document.getElementById("movie"))
@@ -81,7 +81,7 @@ search(text) {
               ReactDOM.render(dis,document.getElementById("movie"))
             }
             else {
-              const check=<div>
+              let check=<div>
               <h1>Error</h1>
               </div>
               ReactDOM.render(check,document.getElementById("movie"))
