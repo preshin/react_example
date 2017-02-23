@@ -11,10 +11,11 @@ search(text) {
   var method="GET"
   var xhttp = new XMLHttpRequest();
   var data;
-  let dis;
+  let dis,view;
   let list,t,id=[];
+  document.getElementById("movie").innerHTML = "";
   xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) { 
+    if (this.readyState == 4 && this.status == 200) {
       xhttp.responseType="jsonp"
       data = JSON.parse(xhttp.responseText);
       console.log("data "+data.data.results.titles.length);
@@ -22,6 +23,8 @@ search(text) {
         let check=<div></div>
         ReactDOM.render(check,document.getElementById("movie"))
         dis=document.getElementById("movie")
+        view=document.createElement('div')
+        view.id="view"
         length=data.data.results.titles.length
         for(let i=0;i<length;i++){
           title=data.data.results.titles[i].title;
@@ -34,9 +37,10 @@ search(text) {
           t=document.createElement('h3');
           var d=document.createTextNode(title)
           t.appendChild(d);
-          dis.appendChild(list)
-          dis.appendChild(t)
+          view.appendChild(list)
+          view.appendChild(t)
         }
+        dis.appendChild(view)
       }
       else{
         let check=<div>
@@ -52,7 +56,7 @@ search(text) {
     var target = eventArgs.target;
     console.log(eventArgs);
     for (var i = 0; i < length; i++) {
-      const check=<div></div>
+      let check=<div></div>
       ReactDOM.render(check,document.getElementById("movie"))
       var elementToLookFor =id[i];
       if (target.id.toLowerCase() == elementToLookFor) {
